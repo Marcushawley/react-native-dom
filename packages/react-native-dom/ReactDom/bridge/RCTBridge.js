@@ -138,7 +138,7 @@ export default class RCTBridge {
     this.basename = basename;
 
     const bridgeCodeBlob = new Blob([WORKER_SRC]);
-    const worker = new Worker(URL.createObjectURL(bridgeCodeBlob));
+    const worker = window.worker = new Worker(URL.createObjectURL(bridgeCodeBlob));
     this.setThread(worker);
   }
 
